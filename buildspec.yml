@@ -16,10 +16,9 @@ phases:
     commands:
       - echo Publish started on `date`
       - dotnet publish --configuration Release --output ./publish
+      - cp appspec.yml ./publish   # Copy appspec.yml to the publish directory
 
 artifacts:
   files:
     - '**/*'
-    - 'appspec.yml'   # Include the appspec.yml file
-    - 'Applicationstart.ps1'
   base-directory: 'publish'
